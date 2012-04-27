@@ -1,0 +1,61 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <%= link_to "Ronildo Costa", "/", :class => "brand" %>
+      
+      <% if user_signed_in? %>
+        <div class="btn-group pull-right">
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="icon-user"></i> <%= current_user.name %>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <% if current_user.admin? %>
+              <li><%= link_to 'New Post', new_post_path %></li>
+            <% end %>
+            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+            <li class="divider"></li>
+            <li><%= link_to('Sign Out', destroy_user_session_path, :method=>'delete') %></li>
+          </ul>
+        </div>
+      <% else %>
+        <div class="btn-group pull-right">
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="icon-user"></i> Login
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu big-drop">
+            <%= form_for("user", :url => user_session_path, :class => "form-horizontal") do |f| %>
+              <fieldset>
+                <div class="input-prepend">
+                  <span class="add-on"><i class="icon-envelope"></i></span><%= f.text_field :email, :placeholder => "Your e-mail" %>
+                </div>
+                 <div class="input-prepend">
+                  <span class="add-on"><i class="icon-lock"></i></span><%= f.password_field :password, :placeholder => "Your password" %>
+                </div>
+                <%= f.check_box :remember_me, :class => "left" %>
+                <%= f.label :remember_me, :class => "checkbox" %>
+                <%= f.submit 'Sign in', :class => "btn" %>
+                <%= link_to "Forgot your password?", new_password_path('user'), :class => "right" %>
+              </fieldset>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li class="active"><%= link_to "Home", "/" %></li>
+          <!-- li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li -->
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
