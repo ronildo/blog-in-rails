@@ -11,3 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery_ujs
+
+$(document).ready(function(){
+	//alert("tesr");
+	$('.dropdown-menu').find('form').click(function (e) { e.stopPropagation(); });
+});

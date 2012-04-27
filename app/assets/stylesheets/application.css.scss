@@ -26,9 +26,11 @@ body {
 .right{float: right;}
 
 .open .big-drop{
-	width: 280px;
+	width: 286px;
 	form{
-		margin: 20px 0 20px 20px;
+		fieldset{
+			margin: 20px;
+		}
 	}
 }
 
