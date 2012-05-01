@@ -22,8 +22,9 @@ body {
   padding: 9px 0;
 }
 
-.left{float: left;}
-.right{float: right;}
+.left{float: left}
+.right{float: right}
+.center{text-align: center}
 
 .open .big-drop{
 	width: 286px;
@@ -32,11 +33,18 @@ body {
 			margin: 20px;
 		}
 	}
+	a.right{
+		margin-top: 4px;
+		padding: 0;
+	}
+	a.btn{
+		color: #FFF;
+	}
 }
 
 .container{
 	p{
-		color: #666666;
+		color: #666;
 		font-family: "Helvetica Neue",Helvetica,Arial,Sans-Serif;
 		font-size: 16px;
 		line-height: 1.5;
