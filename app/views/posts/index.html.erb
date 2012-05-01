@@ -3,7 +3,7 @@
 	  <% @posts.each do |post| %>
 	  	<div class="white-box">
 		    <h1><%= link_to post.title, post, :title => post.title %></h1>
-		    <p><%= post.content %></p>
+		    <p><%= format_content(post.content) %></p>
 		    <hr />
 		    <span class="date"><%= post.created_at.strftime("%a, %b %e - %Y at %l:%M") %></span>
 		    <span class="comments right"><%= link_to "#{post.comments.count} Comments", post %></span>
