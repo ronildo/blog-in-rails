@@ -1,8 +1,41 @@
-<div class="span9">
-	<div class="post">
-		<h1><%= link_to @post.title, @post %></h1>
-		<p><%= @post.content %></p>
-		<p><%= @post.full_content %></p>
-		<hr />
+<div class="row">
+	<div class="span9">
+		<div class="white-box">
+			<h1><%= link_to @post.title, @post %></h1>
+			<p><%= @post.content %></p>
+			<p><%= format_content(@post.full_content) %></p>
+			<hr />
+		</div>
+	</div>
+</div>
+
+
+
+<div class="row">
+	<div class="span9">
+		<div class="white-box">
+
+			<% unless @post.comments.empty? %>
+				<div class="each-comment" >
+					<h2>Comments</h2>
+					<% @post.comments.each do |comment| %>
+						<p class="name">Name: <strong><%= comment.user.name %></strong></p>
+						<div class="content"><%= format_content(comment.body) %></div>
+						<hr />
+					<% end %>
+				</div>
+			<% end %>
+
+			<h2>Make your comment:</h2>
+			<%= form_for([@post, @post.comments.build]) do |f| %>
+				<% if user_signed_in? %>
+				  <div class="field"><%= f.text_area :body %></div>
+				  <p><%= f.submit "Submit", :class => "btn btn-primary" %></p>
+				<% else %>
+				  <div class="field"><%= f.text_area :body, :disabled => true %></div>
+				  <p><%= f.submit "Submit", :class => "btn btn-primary", :disabled => true %></p>
+				<% end %>
+			<% end %>
+		</div>
 	</div>
 </div>
