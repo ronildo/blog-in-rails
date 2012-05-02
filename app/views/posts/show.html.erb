@@ -2,8 +2,8 @@
 	<div class="span9">
 		<div class="white-box">
 			<h1><%= link_to @post.title, @post %></h1>
-			<p><%= format_content(@post.content) %></p>
-			<p><%= format_content(@post.full_content) %></p>
+			<p><%= raw(@post.content) %></p>
+			<p><%= raw(@post.full_content) %></p>
 			<hr />
 		</div>
 	</div>
