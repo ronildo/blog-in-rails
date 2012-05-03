@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Post < ActiveRecord::Base
 	belongs_to :user
 	has_many :comments, :dependent => :destroy
@@ -9,4 +10,5 @@ class Post < ActiveRecord::Base
 	validates :content, :presence => true, :length => { :minimum => 10 }
 
 	attr_accessible :title, :content, :user_id, :full_content
+
 end
