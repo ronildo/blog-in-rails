@@ -16,6 +16,9 @@
 body {
 	background-color: #EFEFEF;
 	padding: 60px 0 0 0;
+	font-family: "Helvetica Neue",Helvetica,Arial,Sans-Serif;
+	font-size: 14px;
+	line-height: 1.5;
 }
 
 .sidebar-nav {
@@ -45,9 +48,6 @@ body {
 .container{
 	p{
 		color: #666;
-		font-family: "Helvetica Neue",Helvetica,Arial,Sans-Serif;
-		font-size: 16px;
-		line-height: 1.5;
 	}
 	h1{
 		margin-bottom: 10px;
@@ -74,4 +74,15 @@ body {
 		margin-bottom: 10px;
 	}
 	p.name{margin: 0}
+}
+
+
+/** Sidebar **/
+.sidebar{
+	img{
+		margin-left: 11px;
+		&.first-icon{
+			margin: 0;
+		}
+	}
 }
